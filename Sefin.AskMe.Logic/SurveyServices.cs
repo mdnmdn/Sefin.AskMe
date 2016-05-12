@@ -33,11 +33,13 @@ namespace Sefin.AskMe.Logic
         public IQueryable<SurveyInfo> ListSurveys(string search)
         {
             var result = _data.AsQueryable();
+
             if (!String.IsNullOrEmpty(search)) {
                 result = result.Where(s => s.Id == search 
                         || s.Name.IndexOf(search, StringComparison.CurrentCultureIgnoreCase) >=0
                         || s.Description.IndexOf(search, StringComparison.CurrentCultureIgnoreCase) >= 0);
             }
+
             return result;
         }
 

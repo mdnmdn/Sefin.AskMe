@@ -23,9 +23,24 @@ namespace Sefin.AskMe.WebFormApp.Management
         //     string sortByExpression
         public IQueryable<SurveyInfo> GridSurvey_GetData()
         {
+            var search = TxtSearch.Text;
+
             var svc = new SurveyServices();
-            IQueryable<SurveyInfo> data = svc.ListSurveys();
+            IQueryable<SurveyInfo> data = svc.ListSurveys(search);
+
+
+            //IQueryable<SurveyInfo> data = svc.ListSurveys();
+            //if (!String.IsNullOrEmpty(search)) {
+            //    data = data.Where(s => s.Name.ToLower().Contains(search));    
+            //}
+
             return data;
+        }
+
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            GridSurvey.PageIndex = 0;
+            GridSurvey.DataBind();
         }
     }
 }
