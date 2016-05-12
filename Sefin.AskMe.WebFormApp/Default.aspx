@@ -8,19 +8,23 @@
 
         <div class="row">
             <div class="col-md-push-1 col-md-4">
+
                 <a href="#" class="btn btn-default btn-lg btn-block">
                     <span class="glyphicon glyphicon-pencil"></span>
                     Take a survey
                 </a>
+
             </div>
             <div class="col-md-2">
                 &nbsp;
             </div>
             <div class="col-md-4">
+
                 <a href="Management" class="btn btn-default btn-lg btn-block">
                     <span class="glyphicon glyphicon-briefcase"></span>
-                Survey management
+                    Survey management
                 </a>
+
             </div>
         </div>
     </div>
