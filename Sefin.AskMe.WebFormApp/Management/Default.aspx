@@ -5,6 +5,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Survey management</h1>
 
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+
+        
+
     <div class="panel panel-default">
         <div class="panel-body">
 
@@ -13,12 +18,18 @@
 
         </div>
         <div class="panel-footer">
-            
             <asp:LinkButton runat="server" ID="BtnSearch" 
                 OnClick="BtnSearch_Click" CssClass="btn btn-primary" >
                 Search
             </asp:LinkButton>
+            <asp:LinkButton runat="server" ID="BtnClear" 
+                OnClick="BtnClear_Click" CssClass="btn btn-default" >
+                Show all
+            </asp:LinkButton>
 
+            <a href="Default" class="btn btn-default" >
+                Show all 2
+            </a>
         </div>
     </div>
 
@@ -45,7 +56,27 @@
 
             <asp:CheckBoxField DataField="Active" HeaderText="Active" />
 
+            <asp:TemplateField HeaderText="" >
+                <ItemTemplate>
+
+                    <%--<asp:Panel runat="server" Visible='<%# Eval("Active") %>'>
+                        <a href="ShowAnswers?id=<%# Eval("Id") %>" >
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        </a>
+                    </asp:Panel>--%>
+
+                    <a href='<%# "ShowAnswers?id=" + Eval("Id") %>' 
+                       Visible='<%# Eval("Active") %>' runat="server" >
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </a>
+                    
+
+                </ItemTemplate>
+            </asp:TemplateField>
+
         </Columns>
     </asp:GridView>
 
+  </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
