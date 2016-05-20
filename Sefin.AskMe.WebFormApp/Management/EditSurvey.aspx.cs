@@ -59,9 +59,55 @@ namespace Sefin.AskMe.WebFormApp.Management
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
-        public void FormSurvey_UpdateItem(SurveyInfo item)
+        public void FormSurvey_UpdateItem(SurveyInfo surveyToSave)
         {
-            //_surveyService.SaveSurvey(item);
+            //if (CurrentSurvey != null) {
+            //    surveyToSave.Id = CurrentSurvey.Id;
+            //}
+
+            var updatedSurvey = _surveyService.SaveSurvey(surveyToSave);
+            
+            Response.Redirect("EditSurvey?id=" + updatedSurvey.Id);
         }
+
+        protected void DdlNumQuestions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetupQuestions();
+        }
+
+        protected void FormSurvey_DataBound(object sender, EventArgs e)
+        {
+            SetupQuestions();
+        }
+
+
+        private void SetupQuestions()
+        {
+            var ddlNumQuestions = (DropDownList)
+                    FormSurvey.Row.FindControl("DdlNumQuestions");
+
+            var panel2 = (Panel)FormSurvey.Row.FindControl("PnlQuestion2");
+            var panel3 = (Panel)FormSurvey.Row.FindControl("PnlQuestion3");
+
+            string numQuestions = ddlNumQuestions.SelectedValue;
+
+            if (numQuestions == "1")
+            {
+                panel2.Visible = false;
+                panel3.Visible = false;
+            }
+            if (numQuestions == "2")
+            {
+                panel2.Visible = true;
+                panel3.Visible = false;
+            }
+            if (numQuestions == "3")
+            {
+                panel2.Visible = true;
+                panel3.Visible = true;
+            }
+        }
+
+        
     }
 }
