@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,7 +13,12 @@ namespace Sefin.AskMe.WebFormApp.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        protected string CountLetters(string text) {
+
+            if (text == null) return "-";
+            return text.Length.ToString();
         }
 
         // The return type can be changed to IEnumerable, however to support
@@ -23,7 +29,7 @@ namespace Sefin.AskMe.WebFormApp.Management
         //     string sortByExpression
         public IQueryable<SurveyInfo> GridSurvey_GetData()
         {
-            var search = TxtSearch.Text;
+            var search = ViewState["SearchValue"] as string;
 
             var svc = new SurveyServices();
             IQueryable<SurveyInfo> data = svc.ListSurveys(search);
@@ -38,15 +44,19 @@ namespace Sefin.AskMe.WebFormApp.Management
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
+            ViewState["SearchValue"] = TxtSearch.Text;
             GridSurvey.PageIndex = 0;
             GridSurvey.DataBind();
         }
 
         protected void BtnClear_Click(object sender, EventArgs e)
         {
-            TxtSearch.Text = String.Empty;
+            ViewState["SearchValue"] = TxtSearch.Text = String.Empty;
+
             GridSurvey.PageIndex = 0;
             GridSurvey.DataBind();
         }
+
+        
     }
 }

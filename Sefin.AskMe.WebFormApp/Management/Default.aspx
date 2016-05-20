@@ -15,9 +15,10 @@
 
             <asp:TextBox ID="TxtSearch" runat="server"  
                  placeholder="Search for..." CssClass="form-control" />
-
+            
         </div>
         <div class="panel-footer">
+            
             <asp:LinkButton runat="server" ID="BtnSearch" 
                 OnClick="BtnSearch_Click" CssClass="btn btn-primary" >
                 Search
@@ -33,6 +34,10 @@
         </div>
     </div>
 
+
+    <table class="table table-condensed table-striped table-hover table-bordered">
+
+    
     <asp:GridView ID="GridSurvey" 
         SelectMethod="GridSurvey_GetData"
         CssClass="table table-condensed table-striped table-hover table-bordered"
@@ -48,9 +53,10 @@
 
                     <a href="EditSurvey?id=<%# Eval("Id") %>">
                         <span class="glyphicon glyphicon-ok"></span>
-                        <asp:Label runat="server" Text='<%# Eval("Name") %>' />
+                        <asp:Label runat="server" Text='<%#  Eval("Name") %>' />
                     </a>
                     (<%# Eval("NumberOfQuestions") %>)
+
                 </ItemTemplate>
             </asp:TemplateField>
 

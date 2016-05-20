@@ -176,6 +176,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Management\Default.aspx" />
+    <Content Include="Management\EditSurvey.aspx" />
     <Content Include="Management\ShowAnswers.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -257,6 +258,13 @@
     </Compile>
     <Compile Include="Management\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\EditSurvey.aspx.cs">
+      <DependentUpon>EditSurvey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\EditSurvey.aspx.designer.cs">
+      <DependentUpon>EditSurvey.aspx</DependentUpon>
     </Compile>
     <Compile Include="Management\ShowAnswers.aspx.cs">
       <DependentUpon>ShowAnswers.aspx</DependentUpon>
