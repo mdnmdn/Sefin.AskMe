@@ -8,6 +8,7 @@
         SelectMethod="FormSurvey_GetItem"
         UpdateMethod="FormSurvey_UpdateItem"
         OnDataBound="FormSurvey_DataBound"
+
         Width="100%"
         >
         <EditItemTemplate>
@@ -89,9 +90,11 @@
                 <div class="panel-footer">
 
                     <asp:LinkButton runat="server" CssClass="btn btn-default"
+                        OnClientClick="return confirm('Do you want to save?');"
                         CommandName="Update">
                         Save
                     </asp:LinkButton>
+
                 </div>
             </div>
 
