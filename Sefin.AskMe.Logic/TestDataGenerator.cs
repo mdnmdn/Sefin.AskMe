@@ -36,7 +36,7 @@ namespace Sefin.AskMe.Logic
             
             var names = _names.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
-            int numSurveys = 100;
+            int numSurveys = 137;
 
             List<SurveyInfo> surveys = new List<SurveyInfo>();
 
@@ -148,12 +148,12 @@ namespace Sefin.AskMe.Logic
 If you could have one super power what would it be?,x-rays,smell sweets,eat without getting fat
 What was the last book you read?,I don't read,Divina Commedia,Romeo and Juliet
 What is your favorite dish?,Spaghetti,Pizza,Hamburgher
-If you could be any celebrity, who would it be?,Superman,Lady Oscar,Pollyanna
+If you could be any celebrity who would it be?,Superman,Lady Oscar,Pollyanna
 What was your worst restaurant experience?,Eating bugs in Corea,Chinese pizza,Donkey meat
 Are you an indoor or outdoor person?,Indoor,Outdoor,I really don't know
 What's better having high expectations or having low expectations?,High,Low,What is expectation?
 What is the longest that you've gone without doing laundry?,1 week,1 month,What is 'laundry'?
-If you could live anywhere on earth, where would you live?,Hawaii,Bermuda,Cortina
+If you could live anywhere on earth where would you live?,Hawaii,Bermuda,Cortina
 Are you a giver or taker?,Giver,Taker,It depends
 Do you prefer to eat at home or eat out?,I eat as little as possible,At home,At restaurant
 What do you carry in your purse/wallet?,Picture of my cat/dog,only coins,Picture of younger me";

@@ -33,13 +33,11 @@ namespace Sefin.AskMe.Logic
         public IQueryable<SurveyInfo> ListSurveys(string search)
         {
             var result = _data.AsQueryable();
-
             if (!String.IsNullOrEmpty(search)) {
                 result = result.Where(s => s.Id == search 
                         || s.Name.IndexOf(search, StringComparison.CurrentCultureIgnoreCase) >=0
                         || s.Description.IndexOf(search, StringComparison.CurrentCultureIgnoreCase) >= 0);
             }
-
             return result;
         }
 
@@ -180,8 +178,9 @@ namespace Sefin.AskMe.Logic
                 string fileName = GetFileName();
                 if (!File.Exists(fileName))
                 {
-                    _data = new List<SurveyInfo>();
-                    return;
+                    Logic.TestDataGenerator.GenerateIfEmpty();
+                    //_data = new List<SurveyInfo>();
+                    //return;
                 }
                 using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
                 {
