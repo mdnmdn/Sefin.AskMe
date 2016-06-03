@@ -12,6 +12,6 @@ namespace Sefin.AskMe.MvcApp.Controllers
         {
             return View();
         }
-
+     
     }
 }
