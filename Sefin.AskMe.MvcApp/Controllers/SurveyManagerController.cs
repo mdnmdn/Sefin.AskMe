@@ -1,4 +1,5 @@
 ﻿using Sefin.AskMe.Logic;
+using Sefin.AskMe.MvcApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,10 @@ namespace Sefin.AskMe.MvcApp.Controllers
 
         SurveyServices _serivices = new SurveyServices();
 
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            List<SurveyInfo> surveyList = _serivices.ListSurveys()
+            List<SurveyInfo> surveyList = _serivices.ListSurveys(search)
                                                     .ToList();
-
-            ViewBag.MioSaluto = "Ciao";
 
             return View(surveyList);
         }

@@ -2,9 +2,19 @@
 
 @{
     ViewBag.Title = "Survey Management";
+
 }
 
 <h1>Survey management</h1>
+
+
+<form  method="get" action="~/SurveyManager/" >
+    <input type="text" name="search" value="" />
+    <button type="submit" >Search</button>
+</form>
+
+<hr />
+
 
 
 <table class="table table-bordered table-condensed table-striped table-hover">
@@ -20,7 +30,9 @@
     {
         <tr>
             <td>@survey.Id</td>
-            <td>@survey.Name</td>
+            <td>
+                @survey.Name
+            </td>
             <td>
                 @if (survey.Active)
                 {
