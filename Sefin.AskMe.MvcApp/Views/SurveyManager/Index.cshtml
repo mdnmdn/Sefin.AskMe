@@ -1,0 +1,42 @@
+﻿@model List<SurveyInfo>
+
+@{
+    ViewBag.Title = "Survey Management";
+}
+
+<h1>Survey management</h1>
+
+
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Active</th>
+        <th>Questions</th>
+        <th></th>
+    </tr>
+
+    @foreach (var survey in Model)
+    {
+        <tr>
+            <td>@survey.Id</td>
+            <td>@survey.Name</td>
+            <td>
+                @if (survey.Active)
+                {
+                    <span class="glyphicon glyphicon-check"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-unchecked"></span>
+                }
+            </td>
+
+            <td>@survey.NumberOfQuestions</td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+
+
