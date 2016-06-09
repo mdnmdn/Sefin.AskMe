@@ -13,17 +13,28 @@ namespace Sefin.AskMe.MvcApp.Controllers
 
         SurveyServices _services = new SurveyServices();
 
-        public ActionResult Index(string search)
+        public ActionResult Index(SurveyListModel model)
         {
-            List<SurveyInfo> surveyList = _services.ListSurveys(search)
+            List<SurveyInfo> surveyList = _services.ListSurveys(model.Search)
                                                     .ToList();
 
-            var model = new SurveyListModel {
-                Search = search,
-                Surveys = surveyList       
-            };
+            model.Surveys = surveyList;
 
             return View(model);
         }
+
+        //public ActionResult Index(string search)
+        //{
+        //    List<SurveyInfo> surveyList = _services.ListSurveys(search)
+        //                                            .ToList();
+
+        //    var model = new SurveyListModel
+        //    {
+        //        Search = search,
+        //        Surveys = surveyList
+        //    };
+
+        //    return View(model);
+        //}
     }
 }

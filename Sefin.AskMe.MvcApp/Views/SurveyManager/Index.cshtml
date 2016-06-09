@@ -39,7 +39,11 @@
         <tr>
             <td>@survey.Id</td>
             <td>
-                @survey.Name
+                @*<a href="~/SurveyManager/Edit/@survey.Id">
+                    @survey.Name
+                </a>*@
+
+                @Html.ActionLink(survey.Name,"Edit", new { id = survey.Id })
             </td>
             <td>
                 @if (survey.Active)
