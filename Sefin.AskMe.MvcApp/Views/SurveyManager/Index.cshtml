@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Survey";
+
 }
 
 <h1>Survey management</h1>
@@ -9,7 +10,11 @@
 
 <form  method="get" action="~/SurveyManager/" >
     
-    <input type="text" name="search" value="@Model.Search" class="form-control" />
+    @Html.TextBoxFor(m => m.Search, new { @class = "form-control" })
+
+    @*@Html.TextBox("search", Model.Search, new { @class="form-control" } )*@
+
+    @*<input type="text" name="search" value="@Model.Search" class="form-control" />*@
 
     <button type="submit" class="btn btn-primary" >
         Search
