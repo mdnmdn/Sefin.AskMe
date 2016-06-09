@@ -69,6 +69,12 @@ namespace Sefin.AskMe.Logic
         public string Answer3C { get; set; }
 
         [DataMember]
-        public List<Answer> Answers { get; set; } 
+        public List<Answer> Answers { get; set; }
+
+
+        public override string ToString()
+        {
+            return this.Id + " - " + this.Name;
+        }
     }
 }
