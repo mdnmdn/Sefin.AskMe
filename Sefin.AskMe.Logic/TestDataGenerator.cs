@@ -12,20 +12,15 @@ namespace Sefin.AskMe.Logic
 
         public static void GenerateIfEmpty() {
             var service = new SurveyServices();
-            if (!service.ListSurveys().Any()) {
-                var surveys = GenerateData();
-                foreach (var survey in surveys) {
-                    //try
-                    //{
-                        service.SaveSurvey(survey);
-                    //}
-                    //catch (Exception ex) {
-                    //    ex.ToString();
-                    //}
-                }
+        }
+
+        public static void Generate(SurveyServices service)
+        {
+            var surveys = GenerateData();
+            foreach (var survey in surveys)
+            {
+                service.SaveSurvey(survey);
             }
-
-
         }
 
         private static List<SurveyInfo> GenerateData()

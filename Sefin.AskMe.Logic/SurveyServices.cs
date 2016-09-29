@@ -170,17 +170,17 @@ namespace Sefin.AskMe.Logic
 
         #endregion
 
-        private static void Init()
+        private  void Init()
         {
             lock (_lock)
             {
                 if (_data != null) return;
+
                 string fileName = GetFileName();
                 if (!File.Exists(fileName))
                 {
-                    Logic.TestDataGenerator.GenerateIfEmpty();
-                    //_data = new List<SurveyInfo>();
-                    //return;
+                    _data = new List<SurveyInfo>();
+                    Logic.TestDataGenerator.Generate(this);
                 }
                 using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
                 {
