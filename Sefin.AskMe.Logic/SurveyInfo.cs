@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -21,6 +23,9 @@ namespace Sefin.AskMe.Logic
         public string Id { get; set; }
 
         [DataMember]
+        [Display(Name = "Survey name")]
+        [Required]
+        [MinLength(5,ErrorMessage ="Il nome del questionario deve contenere almeno 5 caratteri")]
         public string Name { get; set; }
 
         [DataMember]
@@ -30,6 +35,7 @@ namespace Sefin.AskMe.Logic
         public bool Active { get; set; }
 
         [DataMember]
+        [Display(Name = "Number of questions")]
         public int NumberOfQuestions { get; set; }
 
         [DataMember]

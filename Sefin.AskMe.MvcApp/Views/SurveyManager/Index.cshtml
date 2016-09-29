@@ -57,7 +57,20 @@
             </td>
 
             <td>@survey.NumberOfQuestions</td>
-            <td></td>
+            <td>
+                @*@Html.ActionLink("<span class=\"glyphicon glyphicon - th - list\"></span>",
+                        "ShowAnswers");*@
+
+                @*<a href="~/SurveyManager/ShowAnsers?id=@survey.Id" >
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </a>*@
+
+                <a href="@Url.Action("ShowAnsers",new { survey.Id })">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </a>
+                <!--<span class="glyphicon glyphicon-th-list"></span>-->
+
+            </td>
         </tr>
     }
 

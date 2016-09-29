@@ -23,6 +23,61 @@ namespace Sefin.AskMe.MvcApp.Controllers
             return View(model);
         }
 
+
+        public ActionResult Edit(string id) {
+
+            SurveyInfo survey = _services.GetSurvey(id);
+
+            return View(survey);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(SurveyInfo model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (model.Name[0] != 'A')
+                {
+                    ModelState.AddModelError("", "Deve inizare per A");
+
+                }
+
+                if (ModelState.IsValid)
+                {
+
+                    // fai il salvataggio
+                    // redirect verso altra pagina
+                }
+            }
+            return View(model);
+        }
+
+
+        public ActionResult ShowAnswers(string id, string search) {
+
+            var model = new AnswerListModel
+            {
+                Id = id,
+                Search = search,
+                Survey = _services.GetSurvey(id),
+                Answers =_services.ListAnswers(id).ToList()
+            };
+
+            return View(model);
+        }
+
+        public ActionResult ShowAnswers(AnswerListModel model)
+        {
+            var answers = _services.ListAnswers(model.Id);
+
+            model.Survey = _services.GetSurvey(model.Id);
+            model.Answers = _services.ListAnswers(model.Id).ToList();
+
+            return View(model);
+        }
+
         //public ActionResult Index(string search)
         //{
         //    List<SurveyInfo> surveyList = _services.ListSurveys(search)

@@ -6,11 +6,15 @@ using System.Web;
 
 namespace Sefin.AskMe.MvcApp.Models
 {
-    public class SurveyListModel
+    public class AnswerListModel
     {
+
+        public string Id { get; set; }
 
         public string Search { get; set; }
 
-        public List<SurveyInfo> Surveys { get; set; }
+        public SurveyInfo Survey { get; set; }
+
+        public List<Answer> Answers { get; set; }
     }
 }
