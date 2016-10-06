@@ -6,14 +6,16 @@ using System.Web.Mvc;
 
 namespace Sefin.AskMe.MvcApp.Controllers
 {
-    public class HomeController : Controller
+    public class ManagementController : Controller
     {
         public ActionResult Index()
         {
-            return View();
-            //return RedirectToAction("Index","Management");
-            //return Redirect("~/Management");
+            return RedirectToAction("List");
         }
 
+        public ActionResult List()
+        {
+            return View();
+        }
     }
 }
