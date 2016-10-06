@@ -1,22 +1,60 @@
-﻿
+﻿@model SearchSurveyModel
+
+
 @{
     ViewBag.Title = "Management";
 }
 
 <h2>Survey Management</h2>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        text box ricerca
-    </div>
-    <div class="panel-footer">
-        <a class="btn btn-primary">
-            <span class="glyphicon glyphicon-search"></span> Search
-        </a>
-        <a class="btn btn-default">Show all</a>
-        <a class="btn btn-warning">
-            <span class="glyphicon glyphicon-plus"></span> New
-        </a>
-    </div>
-</div>
+<form action="~/Management/List" method="get">
 
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.TextBoxFor(m => m.SearchText,
+            new { @class = "form-control", placeholder = "Search text" })
+
+        </div>
+        <div class="panel-footer">
+            
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+
+            <a href="~/Management/List" class="btn btn-default">Show all</a>
+            
+            @Html.ActionLink("Show all","List",null, new { @class= "btn btn-default" })
+
+            <a class="btn btn-warning">
+                <span class="glyphicon glyphicon-plus"></span> New
+            </a>
+        </div>
+    </div>
+
+</form>
+
+
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Survey</th>
+        <th>Survey</th>
+    </tr>
+    @foreach (var row in Model.SurveyList) {
+        <tr>
+            <td>@row.Id</td>
+            <td>@row.Name</td>
+            <td>
+                <a href="~/Management/Edit/@row.Id">
+                    @row.Name
+                </a>
+
+                @*
+                    @Html.ActionLink(row.Name, "Edit", new { Id = row.Id })
+
+                    @Html.ActionLink(row.Name,"Edit",new { row.Id })
+                *@
+            </td>
+        </tr>
+    }
+</table>
